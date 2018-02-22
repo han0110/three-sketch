@@ -1,11 +1,16 @@
+// @flow
+
 import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js';
 
-class Wave {
-  constructor(radius) {
-    this.geo = new THREE.IcosahedronGeometry(radius, 2);
-    this.mat = new THREE.MeshPhongMaterial({ flatShading: THREE.FlatShading });
-    this.mesh = new THREE.Mesh(this.geo, this.mat);
+class Wave extends THREE.Group {
+  constructor(radius: number) {
+    super();
+
+    const geo = new THREE.IcosahedronGeometry(radius, 2);
+    const mat = new THREE.MeshPhongMaterial({ flatShading: THREE.FlatShading });
+    this.mesh = new THREE.Mesh(geo, mat);
+    this.add(this.mesh);
 
     this.waves = [];
     this.anim = TWEEN.Tween();
@@ -13,13 +18,14 @@ class Wave {
   }
 
   createWave = () => {
-    const l = this.geo.vertices.length;
+    const { geometry } = this.mesh;
+    const { length } = geometry.vertices;
 
-    for (let i = 0; i < l; i += 1) {
-      const v = this.geo.vertices[i];
+    for (let i = 0; i < length; i += 1) {
+      const v = geometry.vertices[i];
       this.waves.push({
         origin: new THREE.Vector3().copy(v),
-        normal: new THREE.Vector3().copy(v).sub(this.mesh.position).normalize(),
+        normal: new THREE.Vector3().copy(v).sub(this.position).normalize(),
         ang: Math.random() * Math.PI * 2,
         amp: 0.2 + (Math.random() * 0.4),
       });
@@ -34,17 +40,18 @@ class Wave {
   }
 
   _onUpdate = () => {
-    const l = this.geo.vertices.length;
+    const { geometry } = this.mesh;
+    const { length } = geometry.vertices;
 
-    for (let i = 0; i < l; i += 1) {
+    for (let i = 0; i < length; i += 1) {
       // eslint-disable-next-line object-curly-newline
       const { origin, normal, ang, amp } = this.waves[i];
       const { t } = this.param;
       const delta = new THREE.Vector3().addScaledVector(normal, Math.cos(ang + t) * amp);
-      this.geo.vertices[i].set(origin.x + delta.x, origin.y + delta.y, origin.z + delta.z);
+      geometry.vertices[i].set(origin.x + delta.x, origin.y + delta.y, origin.z + delta.z);
     }
 
-    this.mesh.geometry.verticesNeedUpdate = true;
+    geometry.verticesNeedUpdate = true;
   }
 }
 
