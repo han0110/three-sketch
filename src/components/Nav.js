@@ -12,9 +12,6 @@ type Props = {
 const Nav = ({ pathname }: Props) => {
   const links = [
     {
-      show: '',
-      to: '/',
-    }, {
       show: 'About',
       to: '/',
     }, {
@@ -22,6 +19,10 @@ const Nav = ({ pathname }: Props) => {
       to: '/sketch',
     },
   ];
+
+  if (pathname.replace(withPrefix('/sketch'), '').length >= 2) {
+    return <div />;
+  }
 
   return (
     <div className={styles.wrapper}>
