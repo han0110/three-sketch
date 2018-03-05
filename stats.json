@@ -1,20 +1,24 @@
 {
   "assetsByChunkName": {
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-bea21aed34074e30d562.js",
-      "component---src-pages-index-js-bea21aed34074e30d562.js.map"
+      "component---src-pages-index-js-39ba648beb0352c0444c.js",
+      "component---src-pages-index-js-39ba648beb0352c0444c.js.map"
+    ],
+    "path---sketch-smooth-camera": [
+      "path---sketch-smooth-camera-a0e39f21c11f6a62c5ab.js",
+      "path---sketch-smooth-camera-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
       "path----557518bd178906f8d58a.js.map"
     ],
     "component---src-pages-sketch-js": [
-      "component---src-pages-sketch-js-0c5bbe6ca3bf8163c8d8.js",
-      "component---src-pages-sketch-js-0c5bbe6ca3bf8163c8d8.js.map"
+      "component---src-pages-sketch-js-05b3f258a4bdef07c7a7.js",
+      "component---src-pages-sketch-js-05b3f258a4bdef07c7a7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-fa601cb892d5edd4a827.js",
-      "component---src-layouts-index-js-fa601cb892d5edd4a827.js.map"
+      "component---src-layouts-index-js-89cc7a7779240a03b7eb.js",
+      "component---src-layouts-index-js-89cc7a7779240a03b7eb.js.map"
     ],
     "path---index": [
       "path---index-a0e39f21c11f6a62c5ab.js",
@@ -25,15 +29,19 @@
       "path---sketch-a0e39f21c11f6a62c5ab.js.map"
     ],
     "commons": [
-      "commons-034ce7f0dc02c08df7e7.js",
+      "commons-03554c3de8e6350a1b07.js",
       "build-js-styles.css",
-      "commons-034ce7f0dc02c08df7e7.js.map",
+      "commons-03554c3de8e6350a1b07.js.map",
       "build-js-styles.css.map"
     ],
+    "component---src-pages-sketch-smooth-camera-js": [
+      "component---src-pages-sketch-smooth-camera-js-16325a0beefdca6df9e5.js",
+      "component---src-pages-sketch-smooth-camera-js-16325a0beefdca6df9e5.js.map"
+    ],
     "app": [
-      "app-afbd5c9b803b85ca9907.js",
+      "app-3d619536266b02759c76.js",
       "build-js-styles.css",
-      "app-afbd5c9b803b85ca9907.js.map",
+      "app-3d619536266b02759c76.js.map",
       "build-js-styles.css.map"
     ]
   }
