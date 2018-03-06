@@ -10,7 +10,7 @@ type Props = {
     name: string,
     description: string,
   }>,
-}
+};
 
 const Rule = ({ rules }: Props) => (
   <div className={styles.wrapper}>
@@ -19,7 +19,7 @@ const Rule = ({ rules }: Props) => (
     <label htmlFor="gear" className={styles.bg} />
     {
       rules.map(r => (
-        <div className={styles.rule}>
+        <div className={styles.rule} key={r.description}>
           <div>{r.symbol}</div>
           <div>{r.name}</div>
           <div>{r.description}</div>

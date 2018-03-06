@@ -12,7 +12,7 @@ type Props = {
 const Nav = ({ pathname }: Props) => {
   const links = [
     {
-      show: 'About',
+      show: '',
       to: '/',
     }, {
       show: 'Sketch',
@@ -20,7 +20,7 @@ const Nav = ({ pathname }: Props) => {
     },
   ];
 
-  if (pathname.replace(withPrefix('/sketch'), '').length >= 2) {
+  if (/(.+\/|\/)sketch\/.+/g.test(pathname)) {
     return <div />;
   }
 
@@ -29,7 +29,7 @@ const Nav = ({ pathname }: Props) => {
       {
         links.map(link => (
           <Link
-            className={`${styles.link} ${withPrefix(link.to) === pathname ? styles.active : ''}`}
+            className={`${styles.link} ${withPrefix(link.to) === pathname.replace(/\/$/, '') ? styles.active : ''}`}
             to={link.to}
             id={link.show}
             key={link.show}

@@ -84,7 +84,7 @@ class SmoothCamera extends Component<{}> {
     window.onkeypress = this.keypress;
   }
 
-  init = async () => {
+  init = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
     const [fov, aspect, near, far] = [50, width / height, 1, 5000];
