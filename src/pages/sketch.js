@@ -8,6 +8,7 @@ const prefix = '/sketch';
 const Sketch = () => {
   const links = [
     { show: 'Smooth camera', to: `${prefix}/smooth-camera` },
+    { show: 'Text Panel', to: `${prefix}/text-panel` },
   ];
 
   return (

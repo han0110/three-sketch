@@ -25,7 +25,7 @@ class ThreeMgr {
     this.animation = [];
 
     const { innerWidth: width, innerHeight: height } = window;
-    const [fov, aspect, near, far] = [50, width / height, 1, 5000];
+    const [fov, aspect, near, far] = [45, width / height, 1, 500];
 
     this.scene = new THREE.Scene();
 

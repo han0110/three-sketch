@@ -12,21 +12,25 @@ type Props = {
   }>,
 };
 
-const Rule = ({ rules }: Props) => (
-  <div className={styles.wrapper}>
-    <input type="checkbox" id="gear" />
-    <label htmlFor="gear" className={styles.icon} />
-    <label htmlFor="gear" className={styles.bg} />
-    {
-      rules.map(r => (
-        <div className={styles.rule} key={r.description}>
-          <div>{r.symbol}</div>
-          <div>{r.name}</div>
-          <div>{r.description}</div>
-        </div>
-      ))
-    }
-  </div>
-);
+const Rule = ({ rules }: Props) => {
+  if (rules.length === 0) return <div />;
+
+  return (
+    <div className={styles.wrapper}>
+      <input type="checkbox" id="gear" />
+      <label htmlFor="gear" className={styles.icon} />
+      <label htmlFor="gear" className={styles.bg} />
+      {
+        rules.map(r => (
+          <div className={styles.rule} key={r.description}>
+            <div>{r.symbol}</div>
+            <div>{r.name}</div>
+            <div>{r.description}</div>
+          </div>
+        ))
+      }
+    </div>
+  );
+};
 
 export default Rule;

@@ -8,7 +8,7 @@ import Wave from '../three/object/Wave';
 import styles from './index.module.scss';
 
 class About extends Component<{}> {
-  canvas: ?HTMLDivElement;
+  canvas: HTMLDivElement;
   threeMgr: ThreeMgr;
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class About extends Component<{}> {
     this.threeMgr.camera.fov = 70;
     this.threeMgr.camera.updateProjectionMatrix();
 
-    if (this.canvas) { this.canvas.appendChild(this.threeMgr.getDom()); }
+    this.canvas.appendChild(this.threeMgr.getDom());
   };
 
   createLight = () => {
@@ -53,7 +53,7 @@ class About extends Component<{}> {
 
   render() {
     return (
-      <div ref={(div) => { this.canvas = div; }} className={styles.wrapper}>
+      <div ref={(div) => { if (div) this.canvas = div; }} className={styles.wrapper}>
         <div className={styles.children}>
           <div className={styles.normal}>
             Sketch on playing the awesome package

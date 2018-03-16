@@ -10,7 +10,7 @@ import styles from './template.module.scss';
 import Rule from '../../components/Rule';
 
 class Camera extends Component<{}> {
-  canvas: ?HTMLDivElement;
+  canvas: HTMLDivElement;
   threeMgr: ThreeMgr;
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class Camera extends Component<{}> {
 
   init = () => {
     this.threeMgr = new ThreeMgr({ PerspectiveCamera: SmoothCamera });
-    if (this.canvas) { this.canvas.appendChild(this.threeMgr.getDom()); }
+    this.canvas.appendChild(this.threeMgr.getDom());
   }
 
   createLight = () => {
@@ -77,7 +77,7 @@ class Camera extends Component<{}> {
     ];
 
     return (
-      <div ref={(div) => { this.canvas = div; }} className={styles.wrapper}>
+      <div ref={(div) => { if (div) this.canvas = div; }} className={styles.wrapper}>
         <Rule rules={rules} />
       </div>
     );
