@@ -15,6 +15,9 @@ class Wave extends THREE.Group {
     this.waves = [];
     this.anim = TWEEN.Tween();
     this.param = { t: 0 };
+
+    this.createWave();
+    this.createAnim();
   }
 
   createWave = () => {
@@ -32,11 +35,10 @@ class Wave extends THREE.Group {
     }
   }
 
-  animate = () => {
+  createAnim = () => {
     this.anim = new TWEEN.Tween(this.param).to({ t: Math.PI * 2 }, 3000)
       .onUpdate(this._onUpdate)
-      .repeat(Infinity)
-      .start();
+      .repeat(Infinity);
   }
 
   _onUpdate = () => {
@@ -53,6 +55,8 @@ class Wave extends THREE.Group {
 
     geometry.verticesNeedUpdate = true;
   }
+
+  getAnim = () => this.anim;
 }
 
 export default Wave;
